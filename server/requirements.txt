@@ -11,6 +11,7 @@ filelock==3.13.1
 h11==0.14.0
 identify==2.5.31
 idna==3.4
+isort==5.12.0
 motor==3.3.1
 nodeenv==1.8.0
 platformdirs==3.11.0
