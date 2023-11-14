@@ -1,7 +1,9 @@
 from dotenv import get_key
-from fastapi import APIRouter, FastAPI
+from fastapi import FastAPI
 from motor.motor_asyncio import AsyncIOMotorClient
+
 from routes import link_router, user_router
+
 
 app = FastAPI()
 

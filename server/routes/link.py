@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 
+
 link_router = APIRouter(prefix="/link")
 
 
