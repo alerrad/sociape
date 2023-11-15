@@ -17,7 +17,7 @@ db_client = AsyncIOMotorClient(MONGO_URI)
 db = db_client.get_database("sociape")
 
 try:
-    db_client.admin.command("ping")
+    # db_client.admin.command("ping")
     print("Pinged your deployment, connected to db!")
 except Exception as err:
     print(err)
