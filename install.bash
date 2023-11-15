@@ -1,7 +1,8 @@
-# shell script for quick setup
+# shell script for quick setup (Run only once!)
 echo "Installing dependencies for the sveltekit client..."
 cd client && npm i
-cd ..
+echo "Setting up virtual env for API..."
+cd ../server && python -m venv env
 echo "Installing packages for the Fastapi server..."
-cd server && pip install -r requirements.txt
+pip install -r requirements.txt
 echo "Installation complete! Your project is ready to run!"
