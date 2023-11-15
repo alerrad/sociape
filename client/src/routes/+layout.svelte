@@ -28,7 +28,7 @@
     </main>
     <footer class="text-center my-3 h-1/6">
         <p class=" text-gray-400">
-            Copyright Alerrad 2023. Source code - <a
+            Copyright Sociape 2023. Source code - <a
                 class="link"
                 href="https://github.com/alerrad/sociape">here</a
             >
