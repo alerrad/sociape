@@ -19,14 +19,14 @@
             <form class="my-8 max-w-md mx-auto" action="login" method="POST">
                 <input
                     type="text"
-                    placeholder="username"
+                    placeholder="Username"
                     class="input w-full my-3"
                     class:bg-slate-700={$theme === "dark"}
                     class:bg-slate-200={$theme === "light"}
                 />
                 <input
                     type="password"
-                    placeholder="password"
+                    placeholder="Password"
                     class="input w-full my-3"
                     class:bg-slate-700={$theme === "dark"}
                     class:bg-slate-200={$theme === "light"}
@@ -42,21 +42,28 @@
             <form class="my-8 max-w-md mx-auto" action="register" method="POST">
                 <input
                     type="text"
-                    placeholder="username"
+                    placeholder="Username"
                     class="input w-full my-3"
                     class:bg-slate-700={$theme === "dark"}
                     class:bg-slate-200={$theme === "light"}
                 />
                 <input
                     type="text"
-                    placeholder="email"
+                    placeholder="Full name"
+                    class="input w-full my-3"
+                    class:bg-slate-700={$theme === 'dark'}
+                    class:bg-slate-200={$theme === 'light'}
+                />
+                <input
+                    type="text"
+                    placeholder="Email"
                     class="input w-full my-3"
                     class:bg-slate-700={$theme === "dark"}
                     class:bg-slate-200={$theme === "light"}
                 />
                 <input
                     type="password"
-                    placeholder="password"
+                    placeholder="Password"
                     class="input w-full my-3"
                     class:bg-slate-700={$theme === "dark"}
                     class:bg-slate-200={$theme === "light"}
