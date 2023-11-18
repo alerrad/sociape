@@ -8,7 +8,7 @@ run_client() {
 
 run_api() {
     cd server && source ./env/Scripts/activate
-    uvicorn main:app --reload
+    python main.py
 }
 
 run_client &
