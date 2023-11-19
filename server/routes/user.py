@@ -17,3 +17,8 @@ async def register():
 @user_router.post("/login")
 async def login():
     pass
+
+
+@user_router.post("/{username}/like")
+async def like_profile():
+    pass
