@@ -23,6 +23,7 @@ class UserSchema(BaseModel):
                 "bio": "I am a good boi",
                 "links": [],
                 "likes": [],
+                "avatar": "",
                 "email": "someemail@gmail.com",
                 "password": "12345678",
                 "verified": False,
