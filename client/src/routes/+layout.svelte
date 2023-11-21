@@ -1,11 +1,9 @@
 <script lang="ts">
     import "../app.css";
     import { theme } from "$lib/stores/writables";
-</script>
 
-<svelte:head>
-    <title>Sociape - a place for your links</title>
-</svelte:head>
+    $theme; // preload
+</script>
 
 <div class="min-h-screen" data-theme={$theme}>
     <label class="swap swap-rotate p-1 fixed top-2 left-2">

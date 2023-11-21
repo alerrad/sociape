@@ -1,4 +1,5 @@
 <svelte:head>
+    <title>Sociape - a place for your links</title>
     <meta
         name="description"
         content="Web app for placing all your links & portfolio sharing"
