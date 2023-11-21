@@ -13,7 +13,6 @@ class UserSchema(BaseModel):
     links: list[LinkSchema] = Field([])
     likes: list[ObjectId] = Field([])
     password: str = Field(...)
-    verified: bool = Field(False)
 
     class Config:
         schema_extra = {
@@ -26,6 +25,5 @@ class UserSchema(BaseModel):
                 "avatar": "",
                 "email": "someemail@gmail.com",
                 "password": "12345678",
-                "verified": False,
             }
         }
