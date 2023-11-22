@@ -1,6 +1,6 @@
 from bson.objectid import ObjectId
 
-from main import db
+from .config import db
 
 
 user_collection = db.get_collection("users")

@@ -1,29 +1,26 @@
-from bson.objectid import ObjectId
-from pydantic import BaseModel, EmailStr, Field
+from typing import Optional
 
-from .link import LinkSchema
+from pydantic import BaseModel, Field
 
 
 class UserSchema(BaseModel):
     username: str = Field(...)
     fullname: str = Field(...)
     bio: str = Field("")
-    email: EmailStr = Field(...)
+    email: str = Field(...)
     avatar: str = Field("")
-    links: list[LinkSchema] = Field([])
-    likes: list[ObjectId] = Field([])
+    links: list[dict] = Field([])
+    likes: list[str] = Field([])
     password: str = Field(...)
 
-    class Config:
-        schema_extra = {
-            "example": {
-                "username": "flowjackson",
-                "fullname": "Zhalgas",
-                "bio": "I am a good boi",
-                "links": [],
-                "likes": [],
-                "avatar": "",
-                "email": "someemail@gmail.com",
-                "password": "12345678",
-            }
-        }
+
+class UserLogin(BaseModel):
+    username: str = Field(...)
+    password: str = Field(...)
+
+
+class UpdateUserSchema(BaseModel):
+    fullname: str = Optional[str]
+    bio: str = Optional[str]
+    email: str = Optional[str]
+    avatar: str = Optional[str]

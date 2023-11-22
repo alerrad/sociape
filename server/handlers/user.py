@@ -1,7 +1,7 @@
 from bson.objectid import ObjectId
 from passlib.context import CryptContext
 
-from main import db
+from .config import db
 
 
 user_collection = db.get_collection("users")
@@ -16,7 +16,7 @@ def user_helper(user: dict) -> dict:
         "bio": user["bio"],
         "avatar": user["avatar"],
         "links": user["links"],
-        "likes": user["likes"],
+        "likes": list(map(str, user["likes"])),
         "email": user["email"],
     }
 
@@ -54,21 +54,13 @@ async def get_user(username: str) -> dict | None:
     return user_helper(user) if user else None
 
 
-async def update_bio(uid: str, new_bio: str) -> bool:
-    try:
-        await user_collection.find_one_and_update(
-            {"_id": ObjectId(uid)}, {"$set": {"bio": new_bio}}
-        )
-        return True
-    except Exception as err:
-        print(err)
+async def update_profile(uid: str, updated_fields: dict) -> bool:
+    if len(updated_fields) < 1:
         return False
 
-
-async def update_fullname(uid: str, new_fullname: str) -> bool:
     try:
         await user_collection.find_one_and_update(
-            {"_id": ObjectId(uid)}, {"$set": {"fullname": new_fullname}}
+            {"_id": ObjectId(uid)}, {"$set": updated_fields}
         )
         return True
     except Exception as err:
@@ -96,17 +88,6 @@ async def like_profile(uid: str, profile_uid: str) -> bool:
 
         return True
 
-    except Exception as err:
-        print(err)
-        return False
-
-
-async def update_avatar(uid: str, new_avatar: str) -> bool:
-    try:
-        await user_collection.find_one_and_update(
-            {"_id": ObjectId(uid)}, {"$set": {"avatar": new_avatar}}
-        )
-        return True
     except Exception as err:
         print(err)
         return False
