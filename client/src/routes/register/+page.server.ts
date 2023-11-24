@@ -3,15 +3,17 @@ import { API_HOST } from "$env/static/private";
 
 
 export const actions = {
-    default: async ({ request, fetch, cookies }) => {
+    default: async ({ request, fetch }) => {
         const form_data: FormData = await request.formData();
 
         const req_body = {
             username: form_data.get("username"),
+            fullname: form_data.get("fullname"),
+            email: form_data.get("email"),
             password: form_data.get("password"),
         }
 
-        const response = await fetch(API_HOST + "/api/user/login",
+        const response = await fetch(API_HOST + "/api/user/register",
             {
                 method: "POST",
                 headers: {
@@ -23,8 +25,7 @@ export const actions = {
         const res = await response.json();
 
         if (res.success) {
-            cookies.set("token", res.token);
-            throw redirect(303, "/edit");
+            throw redirect(303, "/login");
         }
 
         return {
