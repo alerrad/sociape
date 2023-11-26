@@ -1,18 +1,5 @@
 import { browser } from "$app/environment";
-import { writable, type Writable } from "svelte/store";
-
-interface Link {
-    icon: string,
-    title: string,
-    url: string,
-}
-
-interface User {
-    username: string,
-    bio: string,
-    links: Array<Link>,
-    verified: boolean,
-}
+import { writable } from "svelte/store";
 
 // Custom theme tracking store
 function themeTracker(defaultTheme: string) {
@@ -33,4 +20,3 @@ function themeTracker(defaultTheme: string) {
 }
 
 export const theme = themeTracker("dark");
-export const user: Writable<User | null> = writable(null);

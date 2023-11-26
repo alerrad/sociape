@@ -24,6 +24,7 @@ export const actions = {
 
         if (res.success) {
             cookies.set("token", res.token);
+            cookies.set("user", JSON.stringify(res.data));
             throw redirect(303, "/edit");
         }
 
