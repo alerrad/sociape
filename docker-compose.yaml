@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  front-end:
+    build: ./client
+    command: node build
+    container_name: frontend
+    restart: always
+    networks:
+      - web
+    volumes:
+      - .:/frontend
+    env_file:
+      - ./client/.env
+    ports:
+      - 5173:5173
+
+  back-end:
+    build: ./server
+    command: "python main.py"
+    container_name: backend
+    ports:
+      - 8080:8080
+    restart: always
+    env_file:
+      - ./server/.env
+    networks:
+      - web
+    volumes:
+      - .:/backend
+
+networks:
+  web:
+    driver: bridge
